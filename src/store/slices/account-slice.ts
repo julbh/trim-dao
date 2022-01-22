@@ -90,7 +90,6 @@ export const loadAccountDetails = createAsyncThunk("account/loadAccountDetails",
         const presaleContract = new ethers.Contract(addresses.PRESALE_ADDRESS, PresaleContract, provider);
         investorDetail = await presaleContract.investors(address);
         claimable = await presaleContract.getClaimableAmount(address);
-        console.log("mimmmmmmmmmmmm", claimable);
     }
 
     return {

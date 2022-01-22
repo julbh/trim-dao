@@ -124,7 +124,7 @@ function Publicsale() {
                         </Grid>
                         <div className="presale-card-area">
                             <div className="presale-card-description">
-                                <p className="presale-card-description-text">Swap your MIM for a fixed TRIM value. The Public Event will last from now until on January 20th</p>
+                                <p className="presale-card-description-text">Swap your MIM for a fixed TRIM value.</p>
                             </div>
                         </div>
                         <div className="presale-card-metrics">
@@ -135,7 +135,9 @@ function Publicsale() {
                                 </p>
                                 {!claimStart && <p className="presale-card-metrics-title">Remaining time by launching</p>}
                                 {claimStart && <p className="presale-card-metrics-title">Launching lasted time</p>}
-                                <p className="presale-card-metrics-value">{<>{prettifySeconds(counter)}</>}</p>
+                                <p className="presale-card-metrics-value">
+                                    {counter ? <>{prettifySeconds(counter)}</> : <Skeleton width="150px" />}
+                                </p>
                             </div>
                         </div>
                     </Grid>
@@ -154,9 +156,18 @@ function Publicsale() {
                                 <p className="presale-card-description-text">
                                     You can participate Trim's Public Sale. You can deposit up to 100,000 MIM at a rate of {priceTrimPublic} MIM-TRIM
                                 </p>
-                                {address && <p className="presale-card-description-text">$ {trim(+amimBalance)} MIM deposited for you</p>}
-                                <p className="presale-card-description-text">$ {trim(+mimRaised)} MIM raised</p>
-                                <p className="presale-card-description-text">{trim(totalpTokenAmountToDistribute)} TRIM bought</p>
+                                {address && 
+                                    <p className="presale-card-description-text">
+                                        {/* $ {trim(+amimBalance)} MIM deposited for you */}
+                                        {amimBalance ? <>$ {trim(+amimBalance)} MIM deposited for you </> : <Skeleton width="200px" />}                                       
+                                    </p>
+                                }
+                                {address && 
+                                    <p className="presale-card-description-text">{mimRaised !== undefined ? <>$ {trim(+mimRaised)} MIM raised </> : <Skeleton width="200px" />}</p>
+                                }
+                                {address && 
+                                    <p className="presale-card-description-text">{totalpTokenAmountToDistribute !== undefined ? <>{trim(totalpTokenAmountToDistribute)} TRIM bought </> : <Skeleton width="200px" />}</p>
+                                }
                             </div>
                             {!address && (
                                 <div className="presale-card-wallet-notification">
@@ -219,6 +230,7 @@ function Publicsale() {
                                             </div>
                                         </>
                                     </div>
+                                    {mimBalance !== undefined && 
                                     <div className="presale-user-data">
                                         <div className="data-row">
                                             <p className="data-row-name">Your MIM Balance</p>
@@ -228,7 +240,7 @@ function Publicsale() {
                                             <p className="data-row-name">Your TRIM Balance</p>
                                             <p className="data-row-value">{isAppLoading ? <Skeleton width="180px" /> : <>{trim(+trimBalance)} TRIM</>}</p>
                                         </div>
-                                    </div>
+                                    </div>}
                                 </div>
                             )}
                         </div>

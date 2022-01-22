@@ -1,41 +1,24 @@
 import { Networks } from "../constants/blockchain";
 
 const switchRequest = () => {
-    // return window.ethereum.request({
-    //     method: "wallet_switchEthereumChain",
-    //     params: [{ chainId: "0xa86a" }],
-    // });
     return window.ethereum.request({
         method: "wallet_switchEthereumChain",
-        params: [{ chainId: "0xa869" }],
+        params: [{ chainId: "0xa86a" }],
     });
+    // return window.ethereum.request({
+    //     method: "wallet_switchEthereumChain",
+    //     params: [{ chainId: "0xa869" }],
+    // });
 };
 
 const addChainRequest = () => {
-    // return window.ethereum.request({
-    //     method: "wallet_addEthereumChain",
-    //     params: [
-    //         {
-    //             chainId: "0xa86a",
-    //             chainName: "Avalanche Mainnet",
-    //             rpcUrls: ["https://api.avax.network/ext/bc/C/rpc"],
-    //             blockExplorerUrls: ["https://cchain.explorer.avax.network/"],
-    //             nativeCurrency: {
-    //                 name: "AVAX",
-    //                 symbol: "AVAX",
-    //                 decimals: 18,
-    //             },
-    //         },
-    //     ],
-    // });
-    
     return window.ethereum.request({
         method: "wallet_addEthereumChain",
         params: [
             {
-                chainId: "0xa869",
-                chainName: "Avalanche Fuji Testnet",
-                rpcUrls: ["https://api.avax-test.network/ext/bc/C/rpc"],
+                chainId: "0xa86a",
+                chainName: "Avalanche Mainnet",
+                rpcUrls: ["https://api.avax.network/ext/bc/C/rpc"],
                 blockExplorerUrls: ["https://cchain.explorer.avax.network/"],
                 nativeCurrency: {
                     name: "AVAX",
@@ -45,6 +28,23 @@ const addChainRequest = () => {
             },
         ],
     });
+    
+    // return window.ethereum.request({
+    //     method: "wallet_addEthereumChain",
+    //     params: [
+    //         {
+    //             chainId: "0xa869",
+    //             chainName: "Avalanche Fuji Testnet",
+    //             rpcUrls: ["https://api.avax-test.network/ext/bc/C/rpc"],
+    //             blockExplorerUrls: ["https://cchain.explorer.avax.network/"],
+    //             nativeCurrency: {
+    //                 name: "AVAX",
+    //                 symbol: "AVAX",
+    //                 decimals: 18,
+    //             },
+    //         },
+    //     ],
+    // });
 };
 
 export const swithNetwork = async () => {

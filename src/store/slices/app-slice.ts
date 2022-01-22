@@ -32,6 +32,7 @@ export const loadAppDetails = createAsyncThunk(
         const mimRaised = await presaleContract.mimRaised();
         const totalpTokenAmountToDistribute = await presaleContract.totalpTokenAmountToDistribute();
         const closingTimeStamp = await presaleContract.closingTime();
+        // console.log(closingTimeStamp);
 
         return {
             currentBlock,
@@ -80,7 +81,7 @@ const appSlice = createSlice({
             })
             .addCase(loadAppDetails.rejected, (state, { error }) => {
                 state.loading = false;
-                console.log(error);
+                // console.log(error);
             });
     },
 });

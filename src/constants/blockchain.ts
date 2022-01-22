@@ -5,4 +5,5 @@ export enum Networks {
     FUJI = 43113,
 }
 
-export const DEFAULT_NETWORK = Networks.FUJI;
+// export const DEFAULT_NETWORK = Networks.FUJI;
+export const DEFAULT_NETWORK = Networks.AVAX;
